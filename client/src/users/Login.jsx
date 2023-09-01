@@ -1,14 +1,13 @@
 import axios from "axios";
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import WaveSVG from "../components/WaveSVG";
 
 // Initial form state with empty values for username, password, and email
 
 let emptyForm = {
   username: "",
   password: "",
-  email: "",
 };
 
 // Login component definition
@@ -60,50 +59,49 @@ function Login({ setUser }) {
 
   // JSX rendering of the Login component
   return (
-    <div className="min-h-screen bg-blue-600 flex items-center justify-center">
-      {/* Include the WaveSVG component */}
-      <WaveSVG />
-
-      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-        <div className="bg-white p-8 rounded shadow-md w-96">
-          <h2 className="text-3xl font-semibold mb-4">Login</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label htmlFor="username" className="block text-gray-700">
-                Username
-              </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={form.username}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="password" className="block text-gray-700">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={form.password}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
-              />
-            </div>
-            <div className="flex justify-end">
-              <button
-                type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              >
-                Login
-              </button>
-            </div>
-          </form>
-        </div>
+    <div className="min-h-screen relative flex items-center justify-center">
+      <div className="absolute top-0 left-0 w-full h-full bg-blue-600 bg-gradient-to-b from-[rgba(14,65,102,0.86)] to-[#0e4166] box-border block z-0">
+        <WaveSVG />
+      </div>
+      <div className="z-20 p-8 bg-white rounded-lg shadow-lg w-96">
+        <h1 className="text-2xl mb-4 text-white-600">Login</h1>{" "}
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label
+              htmlFor="username"
+              className="block text-sm font-semibold mb-2 p-2 "
+            >
+              Username
+            </label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              className="w-full p-2 border rounded"
+              value={form.username}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="password"
+              className="block text-sm font-semibold mb-2 p-2 "
+            >
+              Password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              className="w-full p-2 border rounded"
+              value={form.password}
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit" className="w-full p-2 bg-blue-500  rounded">
+            Login
+          </button>
+        </form>
       </div>
     </div>
   );

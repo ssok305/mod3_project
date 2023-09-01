@@ -1,7 +1,8 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useState, useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import Login from "./users/Login";
+import axios from "axios";
 
 function App() {
   const [user, setUser] = useState({});
@@ -23,7 +24,14 @@ function App() {
   useEffect(() => {
     console.log("page loaded");
   }, []);
-  return <></>;
+
+  return (
+    <div>
+      <Routes>
+        <Route path="/login" element={<Login setUser={setUser} />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
