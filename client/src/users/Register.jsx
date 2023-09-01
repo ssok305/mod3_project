@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import WaveSVG from "../components/WaveSVG";
 
 let emptyForm = {
   username: "",
@@ -57,64 +58,68 @@ function Register({ setUser }) {
   };
 
   return (
-    <div className="my-32">
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <label
-          className=" text-lg font-normal text-gray-500 lg:text-xl  dark:text-gray-400"
-          htmlFor="username"
-        >
-          Username:
-        </label>
-        <br />
-        <input
-          className="mt-4 w-full rounded border-2 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-          type="text"
-          id="username"
-          name="username"
-          onChange={handleChange}
-          value={form.username}
-        />
-        <br />
-        <br />
-        <label
-          className=" text-lg font-normal text-gray-500 lg:text-xl  dark:text-gray-400"
-          htmlFor="email"
-        >
-          Email:
-        </label>
-        <br />
-        <input
-          className="mt-4 w-full rounded border-2 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-          type="email"
-          id="email"
-          name="email"
-          onChange={handleChange}
-          value={form.email}
-        />
-        <br />
-        <br />
-        <label
-          className=" text-lg font-normal text-gray-500 lg:text-xl  dark:text-gray-400"
-          htmlFor="password"
-        >
-          Password:
-        </label>
-        <br />
-        <input
-          className="mt-4 w-full rounded border-2 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-          type="password"
-          id="password"
-          name="password"
-          onChange={handleChange}
-          value={form.password}
-        />
-        <br />
-        <br />
-        <button className="bg-lime-600 inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#00FF00 ] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] ">
-          Submit
-        </button>
-      </form>
+    <div className="min-h-screen relative flex items-center justify-center">
+      <div className="absolute top-0 left-0 w-full h-full bg-blue-600 bg-gradient-to-b from-[rgba(14,65,102,0.86)] to-[#0e4166] box-border block z-0">
+        <WaveSVG />
+      </div>
+      <div className="z-20 p-8 bg-white rounded-lg shadow-lg w-96">
+        <h1 className="text-2xl mb-4 text-white-600">Register:</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label
+              htmlFor="username"
+              className="block text-sm font-semibold mb-2 p-2 "
+            >
+              Username:
+            </label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              className="w-full p-2 border rounded"
+              value={form.username}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold mb-2 p-2 "
+            >
+              Email:
+            </label>
+            <input
+              className="w-full p-2 border rounded"
+              type="email"
+              id="email"
+              name="email"
+              onChange={handleChange}
+              value={form.email}
+            />
+          </div>
+          <div className="mb-5 ">
+            <label
+              htmlFor="password"
+              className="block text-sm font-semibold mb-2 p-2 "
+            >
+              Password:
+            </label>
+            <input
+              className="w-full p-2 border rounded"
+              type="password"
+              id="password"
+              name="password"
+              onChange={handleChange}
+              value={form.password}
+            />
+          </div>
+          <div className="space-y-3">
+            <button type="submit" className="w-full p-2 bg-blue-500 rounded">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
