@@ -98,9 +98,19 @@ function Login({ setUser }) {
               onChange={handleChange}
             />
           </div>
-          <button type="submit" className="w-full p-2 bg-blue-500  rounded">
-            Login
-          </button>
+          <div className="space-y-5">
+            <button type="submit" className="w-full p-2 bg-blue-500 rounded">
+              Login
+            </button>
+            <br />
+            <button
+              navigate
+              to="/register"
+              className="w-full p-2 bg-blue-500 rounded"
+            >
+              Sign Up
+            </button>
+          </div>
         </form>
       </div>
     </div>
