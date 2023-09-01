@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import WaveSVG from "../components/WaveSVG";
 
 // Initial form state with empty values for username, password, and email
@@ -64,7 +64,7 @@ function Login({ setUser }) {
         <WaveSVG />
       </div>
       <div className="z-20 p-8 bg-white rounded-lg shadow-lg w-96">
-        <h1 className="text-2xl mb-4 text-white-600">Login</h1>{" "}
+        <h1 className="text-2xl mb-4 text-white-600">Login</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
@@ -104,8 +104,7 @@ function Login({ setUser }) {
             </button>
             <br />
             <button
-              navigate
-              to="/register"
+              onClick={() => navigate("/register")}
               className="w-full p-2 bg-blue-500 rounded"
             >
               Sign Up
