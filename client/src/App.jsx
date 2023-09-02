@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+import Register from "./users/Register";
 import Login from "./users/Login";
 import axios from "axios";
 
@@ -28,7 +28,9 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/register" element={<Register setUser={setUser} />} />
       </Routes>
     </div>
   );
