@@ -5,7 +5,7 @@ const cors = require('cors')
 
 const app = express()
 
-const PORT = 3000
+const PORT = 8080
 
 const connectDB = require('./config')
 
@@ -20,10 +20,10 @@ const { authorize } = require('./middleware/authMiddleware')
 app.use(express.json())
 app.use(cors())
 
-app.use('/', (req,res) => { res.send('Hello World')})
 app.use('/api/users', authorize ,userRoutes)
-app.use('/auth', authRoutes)
 app.use('/api/music', apiRoutes)
+app.use('/auth', authRoutes)
+
 
 app.listen(PORT, () => {
     console.log('Listening to the port: ' + PORT)
