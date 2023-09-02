@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Register from "./users/Register";
 import Login from "./users/Login";
 import HomePage from "./pages/HomePage.jsx";
+
 import axios from "axios";
 
 function App() {
@@ -43,11 +44,17 @@ function App() {
         {loggedIn ? (
           <>
             <Route path="/homepage" element={<HomePage to="/homepage" />} />
+            {!isLoading && (
+              <Route path="*" element={<Navigate to="/homepage" />} />
+            )}
           </>
         ) : (
           <>
             <Route path="/login" element={<Login setUser={setUser} />} />
             <Route path="/register" element={<Register setUser={setUser} />} />
+            {!isLoading && (
+              <Route path="*" element={<Navigate to="/Login" />} />
+            )}
           </>
         )}
       </Routes>
