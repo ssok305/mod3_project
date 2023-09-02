@@ -49,8 +49,7 @@ function Register({ setUser }) {
       // Set the user state with the fetched user data
       setUser(userResponse.data);
 
-      // Navigate to the "/posts" route
-      navigate("/");
+      navigate("/homepage");
     } catch (err) {
       console.log(err);
       alert(err.response.data.error);

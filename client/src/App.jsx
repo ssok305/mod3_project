@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Register from "./users/Register";
 import Login from "./users/Login";
+import HomePage from "./pages/HomePage.jsx";
 import axios from "axios";
 
 function App() {
   const [user, setUser] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [authenicated, setAuthenicated] = useState(false);
 
   async function getUser() {
     try {
@@ -19,18 +22,34 @@ function App() {
     } catch (err) {
       console.log(err.message);
     }
+    setIsLoading(false);
   }
 
   useEffect(() => {
-    console.log("page loaded");
+    let token = localStorage.getItem("token");
+    if (token) {
+      getUser(token);
+    } else {
+      setIsLoading(false);
+    }
   }, []);
+
+  let loggedIn = user.username;
 
   return (
     <div>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/register" element={<Register setUser={setUser} />} />
+        {loggedIn ? (
+          <>
+            <Route path="/homepage" element={<HomePage to="/homepage" />} />
+          </>
+        ) : (
+          <>
+            <Route path="/login" element={<Login setUser={setUser} />} />
+            <Route path="/register" element={<Register setUser={setUser} />} />
+          </>
+        )}
       </Routes>
     </div>
   );

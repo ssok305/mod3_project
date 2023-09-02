@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import WaveSVG from "../components/WaveSVG";
 
 // Initial form state with empty values for username, password, and email
@@ -50,7 +50,7 @@ function Login({ setUser }) {
       setUser(userResponse.data);
 
       // Navigate the user to the "/posts" route
-      navigate("/");
+      navigate("/homepage");
     } catch (err) {
       console.log(err);
       alert(err.response.data.error); // Display an alert with the error message
