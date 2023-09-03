@@ -30,10 +30,9 @@ async function register(req, res){
     }
 }
 
-async function login(req,res){
+async function login(req, res){
     try{
         const foundUser = await User.findOne({username: req.body.username})
-
         if(!foundUser){
             return res.status(404).json({error: 'No such user exists'})
         }
@@ -48,8 +47,8 @@ async function login(req,res){
 
         res.status(200).json({token})
     }catch(error){
-        console.log(error.message)
-        res.status(400).json({error: error.message})
+        console.error(error); // Log the error for debugging
+        res.status(500).json({error: 'Server error'})
     }
 }
 

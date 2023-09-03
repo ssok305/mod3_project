@@ -3,8 +3,7 @@ const router = express.Router()
 
 const apiController = require('../controllers/apiController')
 
-// Authorization route
-router.post('/auth/token', apiController.getToken)
+
 
 // Genre-related route
 router.get('/genres', apiController.getGenre)
