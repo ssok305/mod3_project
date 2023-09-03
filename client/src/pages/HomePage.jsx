@@ -6,6 +6,7 @@ import Listbox from "../components/Listbox";
 import axios from "axios";
 import { useState } from "react";
 import { Credentials } from "../components/Credentials";
+import Detail from "../components/Details";
 
 function HomePage() {
   const [user, setUser] = useState({});
@@ -82,7 +83,7 @@ function HomePage() {
       });
     });
   }
-  function listboxClicked() {
+  function listboxClicked(val) {
     const currentTracks = [...tracks.listOfTracksFromAPI];
 
     const trackInfo = currentTracks.filter((t) => t.track.id === val);
@@ -122,6 +123,15 @@ function HomePage() {
       <div className="z-20 flex flex-col justify-center items-center min-h-screen">
         <Navbar username={loggedIn} setUser={setUser} />
         <div className="z-20 flex flex-col ">
+          <div className="pt-4">
+            {trackDetail && <Detail {...trackDetail} />}
+          </div>
+          <div className="z-20 flex flex-col pb-5">
+            <Listbox
+              items={tracks.listOfTracksFromAPI}
+              clicked={listboxClicked}
+            />
+          </div>
           <form
             onSubmit={buttonClicked}
             className="flex flex-col items-center space-y-4 "
@@ -145,13 +155,6 @@ function HomePage() {
               >
                 Search
               </button>
-            </div>
-            <div className="row">
-              <Listbox
-                items={tracks.listOfTracksFromAPI}
-                clicked={listboxClicked}
-              />
-              {trackDetail && <Detail {...trackDetail} />}
             </div>
           </form>
         </div>

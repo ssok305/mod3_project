@@ -17,7 +17,7 @@ const waveSvgStyle = {
 const WaveSVG = () => {
   return (
     <div className="min-h-screen ">
-      <h1 className="z-10 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl ">
+      <h1 className="z-10 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-20 text-white text-4xl ">
         PulseVibe
       </h1>
       <svg
