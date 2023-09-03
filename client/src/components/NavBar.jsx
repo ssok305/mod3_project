@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/react.svg";
+import { useEffect } from "react";
 
 function Navbar({ setUser, username }) {
   const logout = () => {
     localStorage.removeItem("token");
     setUser({});
+    window.location.reload();
   };
 
   return (
