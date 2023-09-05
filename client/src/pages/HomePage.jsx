@@ -5,7 +5,6 @@ import Dropdown from "../components/Dropdown";
 import Listbox from "../components/Listbox";
 import axios from "axios";
 import { useState } from "react";
-import { Credentials } from "../components/Credentials";
 import Detail from "../components/Details";
 
 function HomePage() {
@@ -26,8 +25,6 @@ function HomePage() {
     listOfTracksFromAPI: [],
   });
   const [trackDetail, setTrackDetail] = useState(null);
-
-  const spotify = Credentials();
 
   function genreChanged(val) {
     setGenres({
@@ -112,7 +109,11 @@ function HomePage() {
         });
       });
     });
-  }, [genres.selectedGenre, spotify.ClientId, spotify.ClientSecret]);
+  }, [
+    genres.selectedGenre,
+    import.meta.env.VITE_APP_SPOTIFY_CLIENT_ID,
+    import.meta.env.VITE_APP_SPOTIFY_CLIENT_SECRET,
+  ]);
 
   return (
     <div className="min-h-screen relative">
