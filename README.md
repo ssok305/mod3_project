@@ -1,4 +1,4 @@
-﻿# mod3_project: PulseVibe
+﻿# PulseVibe
  ## Introduction
  This website's intended use is to allow the user to create an account and be able to access the Spotify API. Once they are able to login into the website they are able to look at popular songs from different playlists Spotify generates.
  ### Packages Used:
