@@ -28,7 +28,7 @@ function Register({ setUser }) {
 
     try {
       // Send a POST request to the "/auth/register" endpoint with the form data
-      const authResponse = await axios.post("/auth/register", form);
+      const authResponse = await axios.post(baseURL + "/auth/register", form);
       const token = authResponse.data.token;
 
       // If no token is returned, clear the form and exit the function
@@ -41,7 +41,7 @@ function Register({ setUser }) {
       localStorage.setItem("token", token);
 
       // Send a GET request to "/api/users" to fetch user data using the token for authentication
-      const userResponse = await axios.get("/api/users", {
+      const userResponse = await axios.get(baseURL + "/api/users", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

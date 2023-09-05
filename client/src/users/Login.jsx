@@ -1,7 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import WaveSVG from "../components/WaveSVG";
+import Loading from "../components/Loading";
+import axios from "axios";
 import baseURL from "../components/baseURL";
 
 // Initial form state with empty values for username, password, and email
@@ -17,6 +18,7 @@ function Login({ setUser }) {
 
   // State to hold the form data, initialized with emptyForm
   let [form, setForm] = useState(emptyForm);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Function to handle input changes and update the form state
   const handleChange = (e) => {
@@ -47,6 +49,11 @@ function Login({ setUser }) {
         },
       });
 
+      setIsLoading(true); // Set loading status to true
+
+      // After sending the POST request and getting the response
+      setIsLoading(false); // Set loading status back to false
+
       // Update the user context with the fetched user data
       setUser(userResponse.data);
 
@@ -54,6 +61,7 @@ function Login({ setUser }) {
       navigate("/homepage");
     } catch (err) {
       console.log(err);
+      setIsLoading(false);
       alert(err.response.data.error); // Display an alert with the error message
     }
   };
@@ -100,8 +108,16 @@ function Login({ setUser }) {
             />
           </div>
           <div className="space-y-5">
-            <button type="submit" className="w-full p-2 bg-blue-500 rounded">
-              Login
+            <button
+              type="submit"
+              className="w-full p-2 bg-blue-500 rounded"
+              disabled={isLoading} // Disable the button when loading
+            >
+              {isLoading ? (
+                <Loading /> // Show the Loading component when loading
+              ) : (
+                "Login"
+              )}
             </button>
             <br />
             <button
