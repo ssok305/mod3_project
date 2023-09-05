@@ -23,11 +23,11 @@
     </td>
   </tr>
 </table>
-## Wireframe:
+Wireframe:
 
 [Wireframe PDF](https://github.com/ssok305/mod3_project/blob/main/Wireframe_sutherysok.pdf)
 
-##Deploy Link: 
+Deploy Link: 
 
 https://mod3-projectclient.onrender.com/Login
 
