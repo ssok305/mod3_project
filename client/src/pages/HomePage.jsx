@@ -29,12 +29,6 @@ function HomePage() {
 
   const spotify = Credentials();
 
-  const data = [
-    { value: 1, name: "A" },
-    { value: 2, name: "B" },
-    { value: 3, name: "C" },
-  ];
-
   function genreChanged(val) {
     setGenres({
       selectedGenre: val,
