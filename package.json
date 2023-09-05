@@ -7,7 +7,7 @@
         "client": "cd client && npm run dev",
         "buildServer": "cd backend && npm install",
         "buildClient": "cd client && npm install",
-        "build": "concurrently \"npm run bulidServer\" \"npm run bulidClient\"",
+        "build": "concurrently \"npm run buildServer\" \"npm run buildClient\"",
         "start": "concurrently \"npm run backend\" \"npm run client\""
     },
     "dependencies": {
