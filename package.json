@@ -5,6 +5,9 @@
     "scripts": {
         "backend": "cd backend && npx nodemon server",
         "client": "cd client && npm run dev",
+        "bulidServer": "cd backend && npm install",
+        "bulidClient": "cd client && npm install",
+        "build": "concurrently \"npm run bulidServer\" \"npm run bulidClient\"",
         "start": "concurrently \"npm run backend\" \"npm run client\""
     },
     "dependencies": {
