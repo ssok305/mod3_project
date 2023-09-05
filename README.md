@@ -1,4 +1,4 @@
-﻿# mod3_project
+﻿# mod3_project: PulseVibe
  ## Introduction
  This website's intended use is to allow the user to create an account and be able to access the Spotify API. Once they are able to login into the website they are able to look at popular songs from different playlists Spotify generates.
  ### Packages Used:
@@ -25,6 +25,9 @@
 </table>
 ## Wireframe:
 [Wireframe PDF](https://github.com/ssok305/mod3_project/blob/main/Wireframe_sutherysok.pdf)
+
+##Deploy Link: 
+https://mod3-projectclient.onrender.com/Login
 
 ## Unsolved Problems:
 As I was a bit ambitious I couldn't fully grasp the authentication from Spotify from what I wanted to create. With the problem listed as:
