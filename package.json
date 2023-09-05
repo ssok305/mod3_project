@@ -10,7 +10,7 @@
         "build": "concurrently \"npm run buildServer\" \"npm run buildClient\"",
         "start": "concurrently \"npm run backend\" \"npm run client\""
     },
-    "dependencies": {
+    "devDependencies": {
         "concurrently": "^8.2.1"
     }
 }
