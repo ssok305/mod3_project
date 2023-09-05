@@ -90,7 +90,12 @@ function HomePage() {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         Authorization:
-          "Basic " + btoa(spotify.ClientId + ":" + spotify.ClientSecret),
+          "Basic " +
+          btoa(
+            import.meta.env.VITE_APP_SPOTIFY_CLIENT_ID +
+              ":" +
+              import.meta.env.VITE_APP_SPOTIFY_CLIENT_SECRET
+          ),
       },
       data: "grant_type=client_credentials",
       method: "POST",

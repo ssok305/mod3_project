@@ -9,11 +9,10 @@ import axios from "axios";
 function App() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [authenicated, setAuthenicated] = useState(false);
 
   async function getUser() {
     try {
-      const response = await axios.get(baseURL + "api/users", {
+      const response = await axios.get(baseURL + "/api/users", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
