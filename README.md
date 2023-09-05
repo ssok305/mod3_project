@@ -9,17 +9,24 @@ The creation of the final project of Per Scholas's third module MERN Stack appli
 ### Project Requirements: 
 
 A functioning full-stack, single-page application for (Express) and a CDN service for (React).
+
 Incorporate the technologies of the MERN-stack:
 
-MongoDB/Mongoose
-Express
-React
-Node
+- MongoDB/Mongoose
+- Express
+- React
+- Node
+
 Have a well-styled interactive front-end that communicates with the Express backend via AJAX.
+
 Implement token-based authentication - "...a user can sign-up, log in & log out".
+
 Implement authorization by restricting functionality to authenticated users.
+
 Navigation should respond to the login status of the user.
+
 One User data entity minimum, which will be used for Auth; other data entities can be added and related if desired but are not required.
+
 Have a comprehensive feature-set.
 
 Full CRUD distributed across all Data Entities
@@ -28,9 +35,9 @@ Or
 
 One of the following features instead:
 
-(Easy) - Consume a third-party API and display API data in components.
-(Moderate) - Include an admin interface w/features.
-(Hard) - Utilize multi-user, real-time communications (difficult and time consuming)
+- (Easy) - Consume a third-party API and display API data in components.
+- (Moderate) - Include an admin interface w/features.
+- (Hard) - Utilize multi-user, real-time communications (difficult and time consuming)
 
 
  ### Packages Used:
