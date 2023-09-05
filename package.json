@@ -1,0 +1,13 @@
+{
+    "name": "mod3_project",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "backend": "cd backend && npx nodemon server",
+        "client": "cd client && npm run dev",
+        "start": "concurrently \"npm run backend\" \"npm run client\""
+    },
+    "dependencies": {
+        "concurrently": "^8.2.1"
+    }
+}
