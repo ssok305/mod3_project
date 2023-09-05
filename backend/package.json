@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "buildServer": "npm install",
     "buildClient": "cd .. && cd client && npm install",
-    "client": "cd .. && cd client && npm run build",
-    "backend": "cd .. & cd backend && npm run",
+    "client": "cd .. && cd client && npm run dev",
+    "backend": "npx nodemon server",
     "build": "concurrently \"npm run buildServer\" \"npm run buildClient\"",
     "start": "concurrently \"npm run backend\" \"npm run client\""
     
