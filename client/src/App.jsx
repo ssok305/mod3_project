@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Register from "./users/Register";
 import Login from "./users/Login";
 import HomePage from "./pages/HomePage.jsx";
-
+import baseURL from "./components/baseURL";
 import axios from "axios";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 
   async function getUser() {
     try {
-      const response = await axios.get("api/users", {
+      const response = await axios.get(baseURL + "api/users", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
