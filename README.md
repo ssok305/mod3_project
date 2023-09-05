@@ -14,14 +14,12 @@
 - express
     </td>
     <td valign="top">
-
 - jsonwebtoken
 - mongoose
 - react
 - react-dom
 - react-router-dom
 - Tailwind CSS
-
     </td>
   </tr>
 </table>
