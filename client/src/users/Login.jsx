@@ -1,9 +1,7 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import WaveSVG from "../components/WaveSVG";
-import Loading from "../components/Loading";
-import axios from "axios";
-import baseURL from "../components/baseURL";
 
 // Initial form state with empty values for username, password, and email
 
@@ -18,7 +16,6 @@ function Login({ setUser }) {
 
   // State to hold the form data, initialized with emptyForm
   let [form, setForm] = useState(emptyForm);
-  const [isLoading, setIsLoading] = useState(false);
 
   // Function to handle input changes and update the form state
   const handleChange = (e) => {
@@ -31,7 +28,7 @@ function Login({ setUser }) {
 
     try {
       // Send a POST request to the server to authenticate user
-      const authResponse = await axios.post(baseURL + "/auth/login", form);
+      const authResponse = await axios.post("/auth/login", form);
       const token = authResponse.data.token;
 
       if (!token) {
@@ -43,16 +40,11 @@ function Login({ setUser }) {
       localStorage.setItem("token", token);
 
       // Send a GET request to fetch user data using the stored token
-      const userResponse = await axios.get(baseURL + "/api/users", {
+      const userResponse = await axios.get("/api/users", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-
-      setIsLoading(true); // Set loading status to true
-
-      // After sending the POST request and getting the response
-      setIsLoading(false); // Set loading status back to false
 
       // Update the user context with the fetched user data
       setUser(userResponse.data);
@@ -61,7 +53,6 @@ function Login({ setUser }) {
       navigate("/homepage");
     } catch (err) {
       console.log(err);
-      setIsLoading(false);
       alert(err.response.data.error); // Display an alert with the error message
     }
   };
@@ -108,16 +99,8 @@ function Login({ setUser }) {
             />
           </div>
           <div className="space-y-5">
-            <button
-              type="submit"
-              className="w-full p-2 bg-blue-500 rounded"
-              disabled={isLoading} // Disable the button when loading
-            >
-              {isLoading ? (
-                <Loading /> // Show the Loading component when loading
-              ) : (
-                "Login"
-              )}
+            <button type="submit" className="w-full p-2 bg-blue-500 rounded">
+              Login
             </button>
             <br />
             <button
