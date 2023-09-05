@@ -25,7 +25,8 @@
 </table>
 Wireframe:
 
-[Wireframe PDF](https://github.com/ssok305/mod3_project/blob/main/Wireframe_sutherysok.pdf)
+![image](https://github.com/ssok305/mod3_project/assets/78516342/9d54a20c-8d5e-4384-bf18-028287b544d4)
+
 
 Deploy Link: 
 
