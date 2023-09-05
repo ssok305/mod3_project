@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildServer": "npm install",
+    "buildClient": "cd .. && cd client && npm install",
+    "build": "concurrently \"npm run buildServer\" \"npm run buildClient\"",
+    "start": "concurrently \"npm run backend\" \"npm run client\""
     
   },
   "keywords": [],
