@@ -14,7 +14,7 @@ connectDB()
 const userRoutes = require('./routes/userRoutes')
 const authRoutes = require('./routes/authRoutes')
 const apiRoutes = require('./routes/apiRoutes')
-const baseURL = require('./routes/baseURL')
+
 
 const { authorize } = require('./middleware/authMiddleware')
 
@@ -23,9 +23,9 @@ app.use(cors())
 
 
 
-app.use(baseURL + '/api/users', authorize ,userRoutes)
-app.use(baseURL + '/api/music', apiRoutes)
-app.use(baseURL + '/auth', authRoutes)
+app.use('/api/users', authorize ,userRoutes)
+app.use('/api/music', apiRoutes)
+app.use('/auth', authRoutes)
 
 
 app.listen(PORT, () => {
