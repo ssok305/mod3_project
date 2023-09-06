@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import WaveSVG from "../components/WaveSVG";
+import baseURL from '../components/baseURL'
 
 // Initial form state with empty values for username, password, and email
 
@@ -28,7 +29,7 @@ function Login({ setUser }) {
 
     try {
       // Send a POST request to the server to authenticate user
-      const authResponse = await axios.post("/auth/login", form);
+      const authResponse = await axios.post(baseURL + "/auth/login", form);
       const token = authResponse.data.token;
 
       if (!token) {
@@ -40,7 +41,7 @@ function Login({ setUser }) {
       localStorage.setItem("token", token);
 
       // Send a GET request to fetch user data using the stored token
-      const userResponse = await axios.get("/api/users", {
+      const userResponse = await axios.get(baseURL + "/api/users", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
